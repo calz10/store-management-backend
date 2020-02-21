@@ -6,6 +6,7 @@ const initializeRoutes = require('./routes')
 
 const mongoose = require('./db')
 const app = new Koa()
+const port = process.env.PORT || 3000
 
 initializeRoutes(app)
 
@@ -15,4 +16,5 @@ app.use(bodyParser())
 app.use(helmet())
 app.use(cors())
 
-app.listen(3000)
+
+app.listen(port)
