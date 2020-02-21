@@ -1,1 +1,1 @@
-web:npm start:server
+web:nodemon -r dotenv/config index.js dotenv_config_path=.env.production
