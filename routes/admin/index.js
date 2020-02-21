@@ -2,7 +2,7 @@ const { get } = require('koa-route')
 const { Admin } = require('../../models')
 const { encrypter } = require('../../utils')
 
-const adminFunctions = require('./functions')
+const adminActions = require('./actions')
 
 const initializeAdminRoutes = async (app) => {
   const { use } = app
@@ -10,6 +10,7 @@ const initializeAdminRoutes = async (app) => {
 
   if (!admin.length) {
     const hashDefaultPassword = await encrypter.encrypt('DelmontepineApple@123')
+    
     const defaultAdmin = {
       password: hashDefaultPassword,
       username: 'admin'
@@ -18,7 +19,7 @@ const initializeAdminRoutes = async (app) => {
     await Admin.create(defaultAdmin)
   }
 
-  app.use(get('/admins', adminFunctions.getAdmin))
+  app.use(get('/admins', adminActions.getAdmin))
 }
 
 module.exports = initializeAdminRoutes
