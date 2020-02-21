@@ -1,6 +1,6 @@
 const { Admin } = require('../../models')
 
-const getAdmin = async (ctx, next) => {
+const getAdmin = async (ctx) => {
   ctx.body = await Admin.findOne({})
 }
 
