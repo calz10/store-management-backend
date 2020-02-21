@@ -1,9 +1,9 @@
-const  { Admin } = require('../../models')
+const { Admin } = require('../../models')
 
-const actions = {
-  getAdmin: async (ctx) => {
-    ctx.body = await Admin.findOne({})
-  }
+const getAdmin = async (ctx, next) => {
+  ctx.body = await Admin.findOne({})
 }
 
-module.exports = actions
+module.exports = {
+  getAdmin
+}

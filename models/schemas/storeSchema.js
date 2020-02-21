@@ -5,6 +5,6 @@ const storeSchema = new Schema({
   activeStore: Boolean,
   rentAmount: Number,
   rentorId: String
-})
+}, { autoCreate: true })
 
 module.exports = storeSchema

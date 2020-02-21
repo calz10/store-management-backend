@@ -5,6 +5,6 @@ const paymentSchema = new Schema({
   totalAmount: Number,
   balance: Number,
   storeId: String
-})
+}, { autoCreate: true })
 
 module.exports = paymentSchema
