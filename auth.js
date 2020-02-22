@@ -48,7 +48,7 @@ passport.deserializeUser(async(id, done) => {
   try {
     const user = await User.findById(id)
     if(user) {
-      done(null, user)
+      done(null, user._doc)
     }
     done(null)
   } catch(err) {
@@ -62,7 +62,7 @@ passport.use(new LocalStrategy(async (username, password, done) => {
     const sameHash = await encrypter.checkEncryption(password, user.password)
 
     if(sameHash) {
-      return done(null, user)
+      return done(null, user._doc)
     } else {
       return done(null)
     }

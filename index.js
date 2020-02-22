@@ -31,5 +31,9 @@ app.use(passport.session())
 
 initializeRoutes(app)
 
+app.on('error', (err, ctx) => {
+    console.log(err)
+});
+
 
 app.listen(port)
