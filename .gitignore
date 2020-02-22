@@ -1,5 +1,1 @@
 node_modules/
-./.env.production
-*.log
-jwtRS256.key
-.env.production
