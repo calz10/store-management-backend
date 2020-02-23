@@ -12,9 +12,9 @@ const login = async (ctx, next) => {
       }
     } else {
       const { password, ...docs } = user
-      
       const token = tokenizer.generateToken(docs)
       ctx.body = { success: true, user, token }
+
       return ctx.login(user)
     }
   })(ctx, next)
