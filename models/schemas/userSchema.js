@@ -1,4 +1,7 @@
+const Joi = require('@hapi/joi')
+
 const { mongoose: { Schema } } = require('../../db')
+const { formatValidation } = require('../../utils')
 
 
 const userSchema = new Schema({
@@ -12,6 +15,19 @@ const userSchema = new Schema({
   },
   type: String
 }, { autoCreate: true })
+
+userSchema.method().validateInputs = (data) => {
+  const schema = {
+    username: Joi.string().min(3).max(15).required(),
+    password: Joi.string().min(8).max(30).required().meta({ message: "hih" }),
+    type: Joi.string().valid('rentor', 'admin').default('rentor').required()
+  }
+  const { error } = Joi.object(schema).options({ abortEarly: false }).validate(data)
+  if (error && error.details.length) {
+   return formatValidation(error.details)
+  }
+  return false
+}
 
 
 const adminSchema = new Schema({
