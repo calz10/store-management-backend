@@ -1,4 +1,4 @@
-# Project Title
+Store Management
 
 A web application that allows user to management store
 
