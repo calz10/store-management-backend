@@ -5,8 +5,6 @@ const cors = require('@koa/cors')
 const passport = require('koa-passport')
 const initializeRoutes = require('./routes')
 const session = require('koa-session')
-// const  cookie  =require('koa-cookie')
-const cookies = require('koa-cookie')
 
 const mongoose = require('./db')
 const app = new Koa()
@@ -21,7 +19,7 @@ app.use(helmet())
 app.use(cors())
 
 app.keys = [key, 'secret-key']
-app.use(session({} , app))
+app.use(session({}, app))
 
 require('./auth')
 app.use(passport.initialize())
@@ -30,7 +28,7 @@ app.use(passport.session())
 initializeRoutes(app)
 
 app.on('error', (err, ctx) => {
-    console.log(err)
+    ctx.throw(err)
 });
 
 
