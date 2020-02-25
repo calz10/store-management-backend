@@ -27,9 +27,4 @@ app.use(passport.session())
 
 initializeRoutes(app)
 
-app.on('error', (err, ctx) => {
-    ctx.throw(err)
-});
-
-
 app.listen(port)
