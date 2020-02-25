@@ -4,4 +4,5 @@ module.exports = {
     userSchema: require('./userSchema'),
     collectorSchema: require('./collectorSchema'),
     storeSchema: require('./storeSchema'),
+    refreshTokenSchema: require('./refreshTokenSchema'),
 }

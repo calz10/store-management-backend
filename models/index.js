@@ -8,6 +8,7 @@ const Rentor = model('Rentor', schemas.userSchema.rentorSchema)
 const User = model('User', schemas.userSchema.userSchema)
 const Store = model('Store', schemas.storeSchema)
 const Collector = model('Collector', schemas.collectorSchema)
+const RefreshToken = model('RefreshToken', schemas.refreshTokenSchema)
 
 module.exports = {
   Transaction,
@@ -16,5 +17,6 @@ module.exports = {
   Rentor,
   Store,
   Collector,
-  User
+  User,
+  RefreshToken
 }

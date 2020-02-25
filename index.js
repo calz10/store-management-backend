@@ -5,11 +5,8 @@ const cors = require('@koa/cors')
 const passport = require('koa-passport')
 const initializeRoutes = require('./routes')
 const session = require('koa-session')
-const route = require('koa-route')
-
-// const session = require('koa-generic-session');
-// const convert = require('koa-convert')
-// const CSRF = require('koa-csrf')
+// const  cookie  =require('koa-cookie')
+const cookies = require('koa-cookie')
 
 const mongoose = require('./db')
 const app = new Koa()
@@ -20,6 +17,7 @@ app.use(bodyParser())
 
 mongoose.initializeDb()
 app.use(helmet())
+// app.use(cookies())
 app.use(cors())
 
 app.keys = [key, 'secret-key']
