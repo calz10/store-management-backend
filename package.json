@@ -98,8 +98,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "start:dev": "nodemon -r dotenv/config index.js dotenv_config_path=.env.development",
-    "start:server": "nodemon -r dotenv/config index.js dotenv_config_path=.env.production"
+    "start:dev": "nodemon -r dotenv/config src/server/index.js dotenv_config_path=.env.development",
+    "start:server": "nodemon -r dotenv/config src/server/index.js dotenv_config_path=.env.production"
   },
   "eslintConfig": {
     "extends": "react-app"
