@@ -1,7 +1,7 @@
 const passport = require('koa-passport')
 const  { Strategy: LocalStrategy } = require('passport-local')
-const { encrypter } = require('./utils')
-const { Admin, User, } = require('./models')
+const { encrypter } = require('./src/server/utils')
+const { Admin, User, } = require('./src/server/models')
 
 const bcrypt = require('bcrypt')
 

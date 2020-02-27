@@ -3,20 +3,19 @@ const helmet = require('koa-helmet')
 const bodyParser = require('koa-bodyparser');
 const cors = require('@koa/cors')
 const passport = require('koa-passport')
-const initializeRoutes = require('./routes')
+const initializeRoutes = require('./src/server/routes')
 const session = require('koa-session')
 const serve = require('koa-static');
 const mount = require('koa-mount')
 
-const mongoose = require('./db')
+const mongoose = require('./src/server/db')
 const app = new Koa()
 const port = process.env.PORT || 3000
 const key = process.env.SECRET_KEY
 const path = require('path')
 
 app.use(bodyParser())
-console.log(__dirname+"/client/build")
-app.use(serve("client/build"))
+app.use(serve("build"))
 mongoose.initializeDb()
 app.use(helmet())
 // app.use(cookies())
