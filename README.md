@@ -14,5 +14,7 @@ These instructions will get you a copy of the project up and running on your loc
 - cd to project ```cd store-management```
 - install dependencies ``` npm install ```
 - running project in terminal by script 
-    * ```npm run start:dev``` for debug mode
-    * ```npm run start:server``` for production
+    * ```npm run start:dev``` for debug mode server
+    * ```npm run start:server``` for production server
+    * ```npm run start``` for client debug
+    * ```npm run build ``` for client build
