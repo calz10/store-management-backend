@@ -5,6 +5,13 @@ const { RefreshToken, User } = require('../../models')
 
 
 const login = async (ctx, next) => {
+  if(ctx.isAuthenticated()) {
+    return ctx.body = {
+      ...response[code.INTERNAL_SERVER],
+      message: "user is already authenticated"
+    }
+  }
+
   return passport.authenticate('local', async (err, user, info, status) => {
     try {
       if (!user) {
